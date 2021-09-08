@@ -330,6 +330,7 @@ class SocialPooling(nn.Module):
         return pool_h
 
 class Encoder(nn.Module):
+    """Encoder is part of TrajectoryGenerator """
     def __init__(self, configs):
         super().__init__()
         self.layers = nn.ModuleList([])
@@ -349,6 +350,8 @@ class Encoder(nn.Module):
         return x
 
 class Decoder(nn.Module):
+        """Decoder is part of both TrajectoryGenerator and
+    TrajectoryDiscriminator"""
     def __init__(self, configs,h_dim=64,dropout=0.0,activation='relu', batch_norm=True,neighborhood_size=2.0, grid_size=8, pool_dim=None):
         super().__init__()
         self.layers = nn.ModuleList([])
